@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Search Results</title>
+	</head>
+	
+	<body>
+		<div id = "query">
+			{% if change %}
+				<b><h4> Showing results for "{{query}}" </h4></b>
+				<b><h4> Search instead for "{{original}}"</h4></b>
+			{% else %}
+				<b><h4> Showing results for "{{query}}" </h4></b>
+			{% endif %}
+		</div>
+		<div id = "stats">
+			<h5>{{number}} results in {{time}} seconds.<h5><br>
+		</div>
+		<div id = "resultBox">
+			{% for link in result %}
+				<a href = {{link}}> {{link}} </a><br><br>
+			{% endfor %}
+		</div>
+	</body>
+</html>
