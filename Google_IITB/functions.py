@@ -11,18 +11,18 @@ class Search:
 	d = {}
 		
 	def __init__(self):
-		f = open(str(os.getcwd()) + "/keyweights.p", "rb")
+		f = open(str(os.getcwd()) + "/data/keyweights.p", "rb")
 		self.keyweights = pickle.load(f)
 		f.close()
 		
-		f = open(str(os.getcwd()) + "/data.p", "rb")
+		f = open(str(os.getcwd()) + "/data/data.p", "rb")
 		self.hash_table = pickle.load(f)
 		f.close()
 		
-		with open(str(os.getcwd()) + "/pageranks.p","rb") as fp:
+		with open(str(os.getcwd()) + "/data/pageranks.p","rb") as fp:
 			self.ranks = pickle.load(fp)
 		
-		self.d = DictWithPWL("en_US", str(os.getcwd()) + "/allkeys.txt")
+		self.d = DictWithPWL("en_US", str(os.getcwd()) + "/data/allkeys.txt")
 	
 	def swap(self, listOfUrls, i, j):
 		tmp = listOfUrls[i]
