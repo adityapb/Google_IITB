@@ -8,21 +8,25 @@ class Search:
 	ranks = {}
 	keyweights = {}
 	hash_table = {}
+	titles = {}
 	d = {}
 		
 	def __init__(self):
-		f = open(str(os.getcwd()) + "/data/keyweights.p", "rb")
+		f = open(str(os.getcwd()) + "/Google_IITB/data/keyweights.p", "rb")
 		self.keyweights = pickle.load(f)
 		f.close()
 		
-		f = open(str(os.getcwd()) + "/data/data.p", "rb")
+		f = open(str(os.getcwd()) + "/Google_IITB/data/data.p", "rb")
 		self.hash_table = pickle.load(f)
 		f.close()
 		
-		with open(str(os.getcwd()) + "/data/pageranks.p","rb") as fp:
+		with open(str(os.getcwd()) + "/Google_IITB/data/pageranks.p","rb") as fp:
 			self.ranks = pickle.load(fp)
+			
+		with open(str(os.getcwd()) + "/Google_IITB/data/titles.p","rb") as fp:
+			self.titles = pickle.load(fp)
 		
-		self.d = DictWithPWL("en_US", str(os.getcwd()) + "/data/allkeys.txt")
+		self.d = DictWithPWL("en_US", str(os.getcwd()) + "/Google_IITB/data/allkeys.txt")
 	
 	def swap(self, listOfUrls, i, j):
 		tmp = listOfUrls[i]
@@ -131,7 +135,7 @@ class Search:
 				Count = Count + 1
 		return Count
 
-
+	
 	def search(self, query):
 		result = []
 		searchlist = self.Query(query)
@@ -150,7 +154,15 @@ class Search:
 			matches.append(self.numberOfMatches(link, result))
 		result = self.Sort(result)
 		result = self.primarySort(result, matches)
-		return result
+		final = [[] for i in range(len(result))]
+		for i in range(len(result)):
+			try:
+				if self.titles[result[i]] == '': final[i] = [result[i], result[i]]
+				else: final[i] = [result[i], self.titles[result[i]]]
+			except:
+				final[i] = [result[i], result[i]]
+		return final
+		
 		
 	def searchWSC(self, query):
 		change = False

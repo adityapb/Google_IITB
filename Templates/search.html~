@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Search Results</title>
+		{% if not query %}
+		<title>Google@IITB</title>
+		<link rel="stylesheet" href="/static/css/search.css">
+		{% else %}
+		<link rel="stylesheet" href="/static/css/results.css">
+		<title>Search results</title>
+		{% endif %}
 	</head>
 	
 	<body>
-		<div id = "query">
+		<div id = "search">
+			<form action = "." method = "get">
+				{% if query %}<a href="/">{% endif %}<b><label for="q">Google@IITB</label>{% if query %}</a>{% endif %}</b>{%if not query %}<br>{% endif %}
+				<input type="text" name="q" value="{{ query|escape }}" >{%if not query %}<br>{% endif %}
+				<input type="submit" value="Search">
+			</form>
+		</div>
+		{% if query %}
+		<div>
 			{% if change %}
 				<b><h4> Showing results for "{{query}}" </h4></b>
 				<b><h4> Search instead for "{{original}}"</h4></b>
@@ -14,12 +28,14 @@
 			{% endif %}
 		</div>
 		<div id = "stats">
-			<h5>{{number}} results in {{time}} seconds.<h5><br>
+			<h5>{{number}} results in {{time}} seconds.<h5>
 		</div>
-		<div id = "resultBox">
-			{% for link in result %}
-				<a href = {{link}}> {{link}} </a><br><br>
+		<div>
+			{% for link, title in result %}
+				<a href = {{link}}>{{title}}</a><br>
+				<div class="link"><h5>{{link}}</h5></div><br><br>
 			{% endfor %}
 		</div>
+		{% endif %}
 	</body>
 </html>

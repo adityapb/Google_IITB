@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Google@IITB</title>
+	</head>
+	<body>
+		<form action = "/search/" method = "get">
+			<label for="q">Search: </label>
+			<input type="text" name="q" value="">
+			<input type="submit" value="Search">
+		</form>

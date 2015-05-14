@@ -1,0 +1,32 @@
+input[type="text"] {
+  border: 1px solid black;
+  font-family: sans-serif;
+  width: 30%;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  padding: 3px;
+}
+
+#search
+{
+	padding: 10px;
+	background-color: green;
+	text-align: center;
+}
+
+label
+{
+	color: #FAFAD2;
+}
+
+input[type="submit"]
+{
+	color: white;
+	background-color: blue;
+}
+
+#link
+{
+	color: green;
+}
