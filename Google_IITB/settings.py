@@ -50,7 +50,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_DIRS = (
-	'/home/aditya/Desktop/Google_IITB/Templates',
+	str(os.getcwd()) + '/Templates',
 )
 
 ROOT_URLCONF = 'Google_IITB.urls'
