@@ -143,7 +143,7 @@ class Search:
 			key = self.hashFunc(searchlist[i])
 			secKey = self.findin(key, searchlist[i], self.hash_table)
 			if secKey == -1:
-				return -1
+				return []
 			temp = self.hash_table[key][secKey][1 :]
 			for j in range(len(temp)):
 				#if Find(result, temp[j]) == 0:
