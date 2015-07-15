@@ -12,18 +12,18 @@ class Search:
 	d = {}
 		
 	def __init__(self):
-		f = open(str(os.getcwd()) + "/Google_IITB/data/keyweights.p", "rb")
+		f = open(str(os.getcwd()) + "/Google_IITB/data/keyweights.db", "rb")
 		self.keyweights = pickle.load(f)
 		f.close()
 		
-		f = open(str(os.getcwd()) + "/Google_IITB/data/data.p", "rb")
+		f = open(str(os.getcwd()) + "/Google_IITB/data/data.db", "rb")
 		self.hash_table = pickle.load(f)
 		f.close()
 		
-		with open(str(os.getcwd()) + "/Google_IITB/data/pageranks.p","rb") as fp:
+		with open(str(os.getcwd()) + "/Google_IITB/data/pageranks.db","rb") as fp:
 			self.ranks = pickle.load(fp)
 			
-		with open(str(os.getcwd()) + "/Google_IITB/data/titles.p","rb") as fp:
+		with open(str(os.getcwd()) + "/Google_IITB/data/titles.db","rb") as fp:
 			self.titles = pickle.load(fp)
 		
 		self.d = DictWithPWL("en_US", str(os.getcwd()) + "/Google_IITB/data/allkeys.txt")
