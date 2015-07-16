@@ -21,14 +21,13 @@
 		{% if query %}
 		<div>
 			{% if change %}
-				<b><h4> Showing results for "{{query}}" </h4></b>
-				<b><h4> Search instead for "{{original}}"</h4></b>
+				<b><h4><a href="/?q={{query}}"> Did you mean "{{spaced_query}}"</a> </h4></b>
 			{% else %}
 				<b><h4> Showing results for "{{query}}" </h4></b>
 			{% endif %}
 		</div>
 		<div id = "stats">
-			<h5>{{number}} results in {{time}} seconds.<h5>
+			<h5>{{number}} results in {{time}} seconds.</h5>
 		</div>
 		<div>
 			{% for link, title in result %}

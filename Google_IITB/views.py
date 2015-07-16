@@ -17,14 +17,16 @@ def django_search(request):
 	if not res['change']:
 		c = {'result' : res['search'],
 			 'query' : query,
-			 'original' : query, 
+			 'original' : query,
+			 'spaced_query' : query,
 			 'change': False,
 			 'number': len(res['search']),
 			 'time' : (delta)/1000000.0}
 			 
 	else: c = {'result' : res['search'], 
 			   'query' : res['query'],
-			   'original' : query, 
+			   'original' : query,
+			   'spaced_query' : res['query'].replace('+',' '),
 			   'change': True,
 			   'number': len(res['search']),
 			   'time' : (delta)/1000000.0}

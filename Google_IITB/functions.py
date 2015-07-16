@@ -173,9 +173,9 @@ class Search:
 				searchlist[i] = bestword
 				change = True
 		changedEntry = ""
+		result = self.search(query)
 		if change:
-			for word in searchlist:
-				changedEntry = changedEntry + word + " "
-			result = self.search(changedEntry)
-		else: result = self.search(query)
+			for i,word in enumerate(searchlist):
+				if i is not (len(searchlist)-1): changedEntry = changedEntry + word + "+"
+				else: changedEntry = changedEntry + word
 		return {'change' : change,'query' : changedEntry , 'search' : result}
