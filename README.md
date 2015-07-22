@@ -14,5 +14,5 @@ Also pageranks were calculated using most primitive version of google's pagerank
 The user input is split in words and a list of urls is retrieved from the data. The list is then sorted first according to their pageranks then according to the number of times that link appears in the list.<br><br>
 **The code for first 3 parts can be found in the [SearchEngine](https://github.com/adityapb/searchEngine) project.**
 ##For setting up server
-The server must have python, `pyenchant` module and `django:v1.7.2` installed<br>
+The server must have python, `pyenchant` module and `django:v1.7.4` installed<br>
 For setting up in localhost, run `python manage.py runserver`
