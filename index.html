@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Google@IITB by adityapb</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Google@IITB</h1>
+        <p>Search Engine for IITB domain.</p>
+
+        <p class="view"><a href="https://github.com/adityapb/Google_IITB">View the Project on GitHub <small>adityapb/Google_IITB</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/adityapb/Google_IITB/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/adityapb/Google_IITB/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/adityapb/Google_IITB">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="google_iitb" class="anchor" href="#google_iitb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google_IITB</h1>
+
+<p><strong>Django implementation of <a href="https://github.com/adityapb/searchEngine">SearchEngine</a> project.</strong></p>
+
+<h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
+
+<p><strong>The idea was to try and build a search engine to search through all webpages IITB domain</strong><br>
+There are 4 parts to the project<br></p>
+
+<h3>
+<a id="crawler" class="anchor" href="#crawler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crawler</h3>
+
+<p>It was used to get upto 2000 links and their titles by crawling the web starting from <a href="http://www.iitb.ac.in">here</a>. Only those links having '.iitb.ac.in' were considered.</p>
+
+<h3>
+<a id="extracting-keywords" class="anchor" href="#extracting-keywords" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extracting keywords</h3>
+
+<p>All words from the url as well as title were used as keywords. Also to compensate for the lack of enough keywords, edged N-grams of these words were used.</p>
+
+<h3>
+<a id="creating-the-database" class="anchor" href="#creating-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating the database</h3>
+
+<p>The data was then arranged as 'keyword-list_of_links' table.<br>
+Also pageranks were calculated using most primitive version of google's pageranking algorithm. <a href="https://en.wikipedia.org/wiki/PageRank">Learn more</a></p>
+
+<h3>
+<a id="searching" class="anchor" href="#searching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searching</h3>
+
+<p>The user input is split in words and a list of urls is retrieved from the data. The list is then sorted first according to their pageranks then according to the number of times that link appears in the list.<br><br>
+<strong>The code for first 3 parts can be found in the <a href="https://github.com/adityapb/searchEngine">SearchEngine</a> project.</strong></p>
+
+<h2>
+<a id="for-setting-up-server" class="anchor" href="#for-setting-up-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>For setting up server</h2>
+
+<p>The server must have python, <code>pyenchant</code> module and <code>django:v1.7.4</code> installed<br>
+For setting up in localhost, run <code>python manage.py runserver</code></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/adityapb">adityapb</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
