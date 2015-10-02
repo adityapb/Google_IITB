@@ -1,7 +1,7 @@
 # Google_IITB
 **Django implementation of [SearchEngine](https://github.com/adityapb/searchEngine) project.**
 ##About
-**The idea was to try and build a search engine to search through all webpages IITB domain**<br>
+**A search engine to search through all webpages IITB domain**<br>
 There are 4 parts to the project<br>
 ###Crawler
 It was used to get upto 2000 links and their titles by crawling the web starting from [here](http://www.iitb.ac.in). Only those links having '.iitb.ac.in' were considered.
